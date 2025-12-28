@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masjid Haq-Bahoo Updates</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><i class="fas fa-mosque"></i> Masjid Haq-Bahoo</div>
+        <nav>
+            <button onclick="openAdminModal()" class="admin-nav-btn">Admin Login</button>
+            <button onclick="openDonateModal()" class="donate-nav-btn"><i class="fas fa-heart"></i> Donate Now</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Masjid Updates</h1>
+        <p>Tasaveer aur Videos ke zariye progress mulahiza karein</p>
+    </section>
+
+    <section class="about-section" style="padding: 50px 5%; background: #fff; text-align: center;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 class="section-title">Masjid Haq-Bahoo Ke Baaray Mein</h2>
+            <p style="color: #555; line-height: 1.8; font-size: 1.1rem;">
+                Masjid Haq-Bahoo Karachi Gulshan-e-Zia mein waqai Allah ka ghar hai. Humara maqsad ilaqay mein deeni taleem ko aam karna aur musalmanon ke liye ek behtareen ibadat gah faraham karna hai. Aap ki thori si tawajjo aur taawun Allah ke ghar ki tameer mein eham kirdar ada kar sakta hai.
+            </p>
+        </div>
+    </section>
+
+    <section class="namaz-section">
+        <div class="container">
+            <h2 class="section-title">Namaz Ke Auqat (Karachi Winter)</h2>
+            <div class="namaz-grid">
+    <div id="card-fajr" class="namaz-card"><span>Fajr</span><strong>06:05 AM</strong><small>Azan: 05:45</small></div>
+    <div id="card-zohr" class="namaz-card"><span>Zohr</span><strong>01:30 PM</strong><small>Azan: 12:45</small></div>
+    <div id="card-asr" class="namaz-card"><span>Asr</span><strong>04:35 PM</strong><small>Azan: 04:15</small></div>
+    <div id="card-maghrib" class="namaz-card"><span>Maghrib</span><strong>05:58 PM</strong><small>Azan: Sunset</small></div>
+    <div id="card-isha" class="namaz-card"><span>Isha</span><strong>08:00 PM</strong><small>Azan: 07:45</small></div>
+    <div class="namaz-card jumma"><span>Jumma</span><strong>01:45 PM</strong><small>Khutba: 01:15</small></div>
+</div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <section class="content-column">
+            <h2 class="section-title"><i class="fas fa-camera"></i> Photos</h2>
+            <div id="photos-grid" class="grid-container"></div>
+        </section>
+
+        <section class="content-column">
+            <h2 class="section-title"><i class="fas fa-video"></i> Videos</h2>
+            <div id="videos-grid" class="grid-container"></div>
+        </section>
+    </main>
+
+    <div id="donate-modal" class="modal">
+        <div class="modal-content donate-card">
+            <span onclick="closeDonateModal()" class="close">×</span>
+            <div class="donate-header">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h2>Donate Us</h2>
+                <p>Masjid ki tameer mein apna hissa dalain</p>
+            </div>
+            <div class="payment-methods">
+                <div class="method-item">
+                    <div class="method-icon"><i class="fas fa-university"></i></div>
+                    <div class="method-info">
+                        <strong>Meezan Bank</strong>
+                        <span>A/C: 0101-020202-01</span>
+                        <small>Title: Masjid Haq-Bahoo</small>
+                    </div>
+                </div>
+                <div class="method-item easypaisa">
+                    <div class="method-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="method-info">
+                        <strong>EasyPaisa</strong>
+                        <span>0300-1234567</span>
+                        <small>Nasir Ahmed</small>
+                    </div>
+                </div>
+                <div class="method-item jazzcash">
+                    <div class="method-icon"><i class="fas fa-wallet"></i></div>
+                    <div class="method-info">
+                        <strong>JazzCash</strong>
+                        <span>0301-7654321</span>
+                        <small>Nasir Ahmed</small>
+                    </div>
+                </div>
+            </div>
+            <p class="donate-footer">Allah aap ke rizq mein barkat ata farmaye.</p>
+        </div>
+    </div>
+
+    <div id="admin-modal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeAdminModal()" class="close">×</span>
+            <div id="login-section" class="login-box">
+                <div class="login-header">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Admin Access</h3>
+                    <p>Sirf authorized hazrat ke liye</p>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="loginEmail" placeholder="Email Address">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="loginPass" placeholder="Password">
+                </div>
+                <button onclick="verifyLogin()" class="login-btn">
+                    <span>Login Karein</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <div id="admin-panel" style="display: none;">
+                <div class="admin-dashboard-header">
+                    <i class="fas fa-tools"></i>
+                    <h3>Masjid Control Panel</h3>
+                </div>
+                <div class="admin-tabs">
+                    <button id="tab-add" class="tab-btn active" onclick="switchTab('add')">
+                        <i class="fas fa-plus-circle"></i> Nayi Post
+                    </button>
+                    <button id="tab-remove" class="tab-btn" onclick="switchTab('remove')">
+                        <i class="fas fa-tasks"></i> Manage Posts
+                    </button>
+                </div>
+                <div id="add-post-tab" class="tab-content">
+                    <div class="input-field">
+                        <label>Update Ka Unwan (Title)</label>
+                        <input type="text" id="postTitle" placeholder="Maslan: Chat ki bharai shuru...">
+                    </div>
+                    <div class="input-field">
+                        <label>Tafseel (Description)</label>
+                        <textarea id="postDesc" rows="4" placeholder="Update ke bare mein likhein..."></textarea>
+                    </div>
+                    <div class="file-upload-area">
+                        <label for="postMedia" class="custom-file-upload">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Photo ya Video Select Karein</span>
+                            <input type="file" id="postMedia" accept="image/*,video/*" onchange="updateFileName()">
+                        </label>
+                        <p id="fileNameDisplay" class="file-name-text"></p>
+                    </div>
+                    <button onclick="addPost()" class="publish-btn">
+                        <i class="fas fa-paper-plane"></i> Publish Karein
+                    </button>
+                </div>
+                <div id="remove-post-tab" class="tab-content" style="display: none;">
+                    <div id="manage-posts-list" class="manage-list-container"></div>
+                </div>
+                <button onclick="location.reload()" class="logout-link">
+                    <i class="fas fa-sign-out-alt"></i> Logout Karein
+                </button>
+            </div>
+        </div>
+    </div>
+
+    </main>
+
+    <section class="location-section">
+        <div class="container">
+            <h2 class="section-title">📍 Musjid Ki Location</h2>
+            <div class="map-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3618.337581561665!2d66.9805623753733!3d24.9989443778415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDU5JzU2LjIiTiA2Nis1OCc1OS4zIkU!5e0!3m2!1sen!2s!4v1700000000000" 
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+            <div class="map-details">
+                <p><strong>Masjid Haq-Bahoo</strong> - Moach Goth, Karachi</p>
+                <a href="https://maps.google.com/?q=24.998944,66.983139" target="_blank" class="map-btn">
+                    Google Maps Par Open Karein
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-box">
+                <h3>Masjid Haq-Bahoo</h3>
+                <p>Allah ke ghar ki tameer mein apna hissa dalain aur Sadqa-e-Jariya ka sawab hasil karein. Humari har update transparent aur live hai.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-box">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#" onclick="window.scrollTo(0,0)">Home</a></li>
+                    <li><a href="#" onclick="openDonateModal()">Donate Now</a></li>
+                    <li><a href="#" onclick="openAdminModal()">Admin Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Moach Goth, Karachi, Pakistan</p>
+                <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+                <p><i class="fas fa-envelope"></i> info@masjidhaqbahoo.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Masjid Haq-Bahoo. All Rights Reserved. | Managed by Nasir Ahmed</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

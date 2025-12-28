@@ -1,0 +1,363 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    --primary: #145A32;       /* Dark Green */
+    --gold: #D4AC0D;          /* Gold */
+    --bg: #f4f7f6;            /* Light Grey Background */
+    --white: #ffffff;
+    --text: #333333;
+    --footer-bg: #1a1a1a;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+body { 
+    background-color: var(--bg); 
+    color: var(--text); 
+    line-height: 1.6; 
+}
+
+/* Links ka global fix */
+a {
+    text-decoration: none !important;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+/* Icons global transition */
+i { transition: 0.3s; }
+
+/* =========================================
+   2. HEADER & NAVIGATION
+   ========================================= */
+header {
+    background: var(--white);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+}
+
+.logo { 
+    font-size: 1.4rem; 
+    font-weight: 800; 
+    color: var(--primary) !important; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.logo i { font-size: 1.6rem; }
+
+nav { display: flex; gap: 20px; align-items: center; }
+
+/* Navigation Links Style */
+nav a {
+    color: var(--text) !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+nav a:hover { color: var(--gold) !important; }
+
+/* Buttons styling */
+button, .btn {
+    padding: 10px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+    border: none;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.admin-nav-btn { 
+    background: transparent; 
+    border: 2px solid var(--primary); 
+    color: var(--primary) !important; 
+}
+
+.donate-nav-btn { 
+    background: var(--gold); 
+    color: white !important; 
+    box-shadow: 0 4px 10px rgba(212, 172, 13, 0.3); 
+}
+
+.donate-nav-btn:hover { transform: translateY(-3px); }
+
+/* =========================================
+   3. HERO SECTION
+   ========================================= */
+.hero {
+    background: linear-gradient(rgba(20,90,50,0.85), rgba(20,90,50,0.85)), 
+                url('https://images.unsplash.com/photo-1542369028-1ee1d38e799b?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover; 
+    background-position: center;
+    color: white; 
+    text-align: center; 
+    padding: 100px 20px;
+}
+
+.hero h1 { font-size: 2.8rem; margin-bottom: 15px; }
+
+/* =========================================
+   4. NAMAZ SECTION (Most Important)
+   ========================================= */
+.namaz-section { 
+    padding: 60px 5%; 
+    background: #f1f8f4; 
+    text-align: center; 
+}
+
+.section-title { 
+    color: var(--primary); 
+    display: inline-block;
+    border-bottom: 3px solid var(--gold); 
+    padding-bottom: 10px; 
+    margin-bottom: 40px; 
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.namaz-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+    gap: 20px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.namaz-card { 
+    background: var(--white); 
+    padding: 25px 15px; 
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    border-bottom: 5px solid var(--gold);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Default Colors for Card */
+.namaz-card span { display: block; color: var(--primary); font-weight: bold; font-size: 1.1rem; }
+.namaz-card strong { font-size: 1.5rem; display: block; margin: 10px 0; color: #222; }
+.namaz-card small { color: #888; font-size: 0.85rem; border-top: 1px dashed #ddd; display: block; padding-top: 10px; margin-top: 10px;}
+
+/* JUMMA FIX: Default mein white rahega */
+.namaz-card.jumma { background: white; }
+
+/* --- ACTIVE HIGHLIGHT CLASS (JS adds this) --- */
+.current-namaz {
+    background-color: var(--primary) !important;
+    color: white !important;
+    transform: scale(1.1);
+    box-shadow: 0 20px 40px rgba(20, 90, 50, 0.3) !important;
+    border-color: var(--gold) !important;
+    z-index: 10;
+}
+
+/* Jab active ho toh text white ho jaye */
+.current-namaz span, 
+.current-namaz strong, 
+.current-namaz small {
+    color: white !important;
+}
+
+.current-namaz small { border-top-color: rgba(255,255,255,0.3) !important; }
+
+/* =========================================
+   5. MAIN CONTENT (Posts)
+   ========================================= */
+.main-content {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px; 
+    padding: 60px 5%; 
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+.post-card { 
+    background: white; 
+    padding: 20px; 
+    border-radius: 15px; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06); 
+    text-align: center;
+}
+
+.post-card img, .post-card video { 
+    width: 100%; 
+    border-radius: 10px; 
+    margin-top: 15px; 
+    max-height: 400px; 
+    object-fit: cover; 
+}
+
+/* =========================================
+   6. LOCATION & MAP BUTTON
+   ========================================= */
+.location-section { 
+    padding: 80px 5%; 
+    background: white; 
+    text-align: center; 
+    border-top: 1px solid #eee; 
+}
+
+.map-wrapper { 
+    max-width: 900px; 
+    margin: 30px auto; 
+    border-radius: 20px; 
+    overflow: hidden; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
+    border: 8px solid white; 
+}
+
+/* Map Button Specific Style */
+.map-btn {
+    display: inline-block;
+    background: var(--primary);
+    color: white !important;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(20, 90, 50, 0.3);
+}
+
+.map-btn:hover {
+    background: var(--gold);
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   7. FOOTER SECTION
+   ========================================= */
+.main-footer { 
+    background: var(--footer-bg); 
+    color: white; 
+    padding: 70px 5% 30px; 
+    margin-top: 50px; 
+}
+
+.footer-container { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 40px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.footer-box h3, .footer-box h4 { 
+    color: var(--gold); 
+    margin-bottom: 25px; 
+    font-size: 1.3rem;
+}
+
+.footer-box ul { list-style: none; padding: 0; }
+.footer-box ul li { margin-bottom: 12px; }
+
+/* Footer Links styling */
+.footer-box ul li a { 
+    color: #cccccc !important; 
+    font-size: 0.95rem;
+}
+
+.footer-box ul li a:hover { 
+    color: var(--gold) !important; 
+    padding-left: 8px; 
+}
+
+/* Social Icons */
+.social-icons { display: flex; gap: 15px; margin-top: 20px; }
+
+.social-icons a {
+    width: 40px; 
+    height: 40px; 
+    background: #333; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 50%; 
+    color: white !important; 
+    font-size: 1.2rem;
+}
+
+.social-icons a:hover {
+    background: var(--gold);
+    transform: translateY(-5px);
+}
+
+.footer-bottom { 
+    text-align: center; 
+    border-top: 1px solid #333; 
+    margin-top: 50px; 
+    padding-top: 20px; 
+    color: #777; 
+    font-size: 0.85rem; 
+}
+
+/* =========================================
+   8. MODAL FIXES (Admin & Donate)
+   ========================================= */
+.modal { 
+    display: none; 
+    position: fixed; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.85); 
+    z-index: 2000; 
+    padding: 20px; 
+    overflow-y: auto;
+}
+
+.modal-content { 
+    background: white; 
+    margin: 50px auto; 
+    padding: 30px; 
+    width: 100%; 
+    max-width: 500px; 
+    border-radius: 20px; 
+    position: relative; 
+}
+
+.close { 
+    position: absolute; 
+    top: 15px; right: 20px; 
+    font-size: 30px; 
+    cursor: pointer; 
+    color: #555; 
+}
+
+/* =========================================
+   9. RESPONSIVE / MOBILE
+   ========================================= */
+@media (max-width: 900px) {
+    .main-content { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 15px; text-align: center; }
+    nav { flex-wrap: wrap; justify-content: center; }
+    .hero h1 { font-size: 2rem; }
+    .namaz-grid { grid-template-columns: 1fr 1fr; } /* Mobile pe 2 card */
+    .footer-container { text-align: center; }
+    .social-icons { justify-content: center; }
+    .map-wrapper { height: 300px; }
+}
+
+@media (max-width: 480px) {
+    .namaz-grid { grid-template-columns: 1fr; } /* Chote phone pe 1 card */
+    .hero { padding: 60px 15px; }
+}
